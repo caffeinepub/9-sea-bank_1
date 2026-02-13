@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Design and build a net banking website named \"9 Sea Bank\" with money transfers, debit/credit card management, compound interest tools, loan applications (vehicle, business, home), insurance features, and EMI functionality.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimalist nautical bank logo mark (9-sea-bank-logo.dim_512x512.png)\n- Wide hero/banner illustration with abstract waves and finance motifs (9-sea-bank-hero.dim_1600x600.png)\n- Set of 6 simple outline icons (transfer, card, calculator, loan, insurance, dashboard) in a consistent style (9-sea-bank-icons.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-frontend-app-shell-and-navigation-for-a-net-banking-website-named-9-sea-bank-with-clear-sections-for-dashboard-money-transfer-cards-compound-interest-loans-vehicle-business-home-insurance-and-emi",
+      "title": "Create the core frontend app shell and navigation for a net banking website named “9 Sea Bank”, with clear sections for Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle/Business/Home), Insurance, and EMI.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-apply-a-coherent-visual-theme-for-9-sea-bank-colors-typography-spacing-and-component-styling-and-use-it-consistently-across-all-pages",
+      "title": "Define and apply a coherent visual theme for “9 Sea Bank” (colors, typography, spacing, and component styling) and use it consistently across all pages.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-internet-identity-sign-in-out-and-a-basic-authenticated-layout-so-that-banking-features-transfers-cards-applications-are-only-accessible-to-signed-in-users",
+      "title": "Implement Internet Identity sign-in/out and a basic authenticated layout so that banking features (transfers, cards, applications) are only accessible to signed-in users.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-money-transfer-feature-build-a-ui-to-create-a-transfer-from-account-label-beneficiary-details-amount-note-transfer-type-validate-inputs-submit-to-backend-and-show-transfer-history-with-status-e-g-submitted",
+      "title": "Money Transfer feature: build a UI to create a transfer (from-account label, beneficiary details, amount, note, transfer type), validate inputs, submit to backend, and show transfer history with status (e.g., Submitted).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-card-management-feature-build-a-ui-to-add-and-manage-debit-and-credit-cards-add-card-nickname-card-type-last-4-digits-expiry-list-saved-cards-and-remove-a-card-store-card-records-in-backend-using-safe-display-fields-no-full-pan-storage",
+      "title": "Card Management feature: build a UI to add and manage debit and credit cards (add card nickname, card type, last-4 digits, expiry), list saved cards, and remove a card; store card records in backend using safe display fields (no full PAN storage).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-compound-interest-tool-create-a-calculator-ui-principal-rate-compounding-frequency-time-period-optional-monthly-contribution-and-display-results-future-value-total-interest",
+      "title": "Compound Interest tool: create a calculator UI (principal, rate %, compounding frequency, time period, optional monthly contribution) and display results (future value, total interest).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-loan-applications-implement-three-application-flows-vehicle-loan-business-loan-home-loan-with-forms-applicant-details-requested-amount-tenure-income-purpose-basic-documents-metadata-fields-and-submit-them-to-backend-show-a-my-applications-list-with-statuses-submitted-under-review",
+      "title": "Loan Applications: implement three application flows (Vehicle Loan, Business Loan, Home Loan) with forms (applicant details, requested amount, tenure, income, purpose, basic documents metadata fields) and submit them to backend; show a “My Applications” list with statuses (Submitted/Under Review).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-insurance-section-create-pages-to-browse-insurance-categories-e-g-health-life-vehicle-home-as-simple-categories-and-allow-users-to-submit-an-insurance-inquiry-category-coverage-amount-notes-contact-preference-stored-in-backend-show-submitted-inquiries-list",
+      "title": "Insurance section: create pages to browse insurance categories (e.g., Health, Life, Vehicle, Home as simple categories) and allow users to submit an “Insurance Inquiry” (category, coverage amount, notes, contact preference) stored in backend; show submitted inquiries list.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-emi-feature-create-an-emi-calculator-loan-amount-interest-rate-tenure-monthly-annual-rate-toggle-and-display-emi-total-payment-and-total-interest-optionally-allow-saving-an-emi-plan-entry-to-backend-for-later-viewing",
+      "title": "EMI feature: create an EMI calculator (loan amount, interest rate, tenure; monthly/annual rate toggle) and display EMI, total payment, and total interest; optionally allow saving an EMI plan entry to backend for later viewing.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dashboard-overview-page-that-summarizes-key-user-data-recent-transfers-saved-cards-count-active-loan-applications-count-and-saved-emi-plans-if-implemented-with-quick-links-to-relevant-actions",
+      "title": "Add a Dashboard overview page that summarizes key user data: recent transfers, saved cards count, active loan applications count, and saved EMI plans (if implemented), with quick links to relevant actions.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-frontend-data-fetching-mutations-using-react-query-for-all-backend-interactions-list-create-delete-with-loading-empty-and-error-states-on-each-page",
+      "title": "Implement frontend data fetching/mutations using React Query for all backend interactions (list/create/delete), with loading, empty, and error states on each page.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create net banking website branding and core UI for \"9 Sea Bank\"",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement money transfer functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add debit and credit card management (add/manage cards)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Provide compound interest calculation feature",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement loan application flows for vehicle, business, and house loans",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add insurance-related features/pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add EMI calculation/management feature",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement backend user-scoped persistence keyed by caller identity (Principal) for all user data used by the app (saved payees/beneficiaries, transfer history, saved cards, loan applications, and insurance items).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "9 Sea Bank",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

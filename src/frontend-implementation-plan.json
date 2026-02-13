@@ -1,0 +1,436 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "9 Sea Bank net banking web app (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create core app shell with branded header and navigation to Dashboard, Money Transfer (with history), Cards, Compound Interest, Loans (Vehicle/Business/Home), Insurance, and EMI pages.",
+      "acceptanceCriteria": [
+        "The header or top-level branding displays the name “9 Sea Bank”.",
+        "Users can navigate to pages: Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle, Business and Home), Insurance, EMI.",
+        "All pages render without runtime errors and have consistent layout spacing and typography."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the top-level app composition including routing, shared layout shell, and navigation structure for all required sections. Use shadcn-ui components (e.g., navigation/menu, buttons, cards) to keep UI consistent; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create a reusable authenticated page layout with header branding (“9 Sea Bank”), primary navigation, content container spacing, and footer/help text. Use shadcn-ui components (e.g., Card, Button, Separator) for consistent layout primitives; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SideNav.tsx",
+          "operation": "create",
+          "description": "Implement the navigation UI listing Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle/Business/Home), Insurance, EMI, with active state styling and compact responsive behavior. Use shadcn-ui components where appropriate; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "operation": "create",
+          "description": "Create the Dashboard page shell (will be populated with data summaries in REQ-11) and include quick-link entry points to major actions. Use shadcn-ui components for cards/typography; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MoneyTransferPage.tsx",
+          "operation": "create",
+          "description": "Create the Money Transfer page route and render a placeholder for transfer form + history (implemented in REQ-5). Use shadcn-ui form/layout components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CardsPage.tsx",
+          "operation": "create",
+          "description": "Create the Cards page route and render a placeholder for add/list/remove UI (implemented in REQ-6). Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CompoundInterestPage.tsx",
+          "operation": "create",
+          "description": "Create the Compound Interest calculator page route (calculator implemented in REQ-7). Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LoansPage.tsx",
+          "operation": "create",
+          "description": "Create the Loans section page with tabs/sections for Vehicle Loan, Business Loan, and Home Loan plus a “My Applications” area (implemented in REQ-8). Use shadcn-ui components (e.g., Tabs, Card); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/InsurancePage.tsx",
+          "operation": "create",
+          "description": "Create the Insurance section page with category browsing and inquiry form area (implemented in REQ-9). Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/EmiPage.tsx",
+          "operation": "create",
+          "description": "Create the EMI calculator page route (calculator + optional save/list implemented in REQ-10). Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/generated/9-sea-bank-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated minimalist nautical bank logo mark asset for use in the header/branding."
+        },
+        {
+          "path": "frontend/public/assets/generated/9-sea-bank-hero.dim_1600x600.png",
+          "operation": "create",
+          "description": "Add the generated wide hero/banner illustration asset for use in Dashboard or sign-in screen."
+        },
+        {
+          "path": "frontend/public/assets/generated/9-sea-bank-icons.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated set of outline icons asset for use in navigation/feature tiles."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Define and apply a coherent visual theme (colors, typography, spacing) across the entire UI.",
+      "acceptanceCriteria": [
+        "A consistent color palette and typography scale is applied across the entire UI (buttons, cards, forms, headings).",
+        "The design avoids default/unstyled look and feels like a single product."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create/define global styles and CSS variables for the 9 Sea Bank theme (brand colors, background/surface, typography scale, radii, focus rings) compatible with Tailwind + shadcn-ui tokens. Use English for any visible text (e.g., utility classes are fine)."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens (if needed) to support the 9 Sea Bank palette and consistent spacing/typography settings while keeping shadcn-ui token mapping intact."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Apply consistent spacing/typography styles in the shared layout (container widths, section headings, page padding). Use shadcn-ui components for consistent look; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "operation": "modify",
+          "description": "Add a branded hero/banner section using frontend/public/assets/generated/9-sea-bank-hero.dim_1600x600.png and ensure consistent headings/cards styling across the page. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement Internet Identity sign-in/out and an authenticated layout gate so banking features are only accessible when signed in, including first-time user profile setup.",
+      "acceptanceCriteria": [
+        "There is a sign-in and sign-out control using Internet Identity.",
+        "When signed out, protected pages prompt the user to sign in (or redirect to a sign-in screen).",
+        "When signed in, the user can access all banking feature pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Auth/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create a login/logout button that uses the immutable useInternetIdentity hook and clears React Query cache on logout. Use the authorization component guidance for Internet Identity + cache clearing; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Auth/RequireAuth.tsx",
+          "operation": "create",
+          "description": "Create a route guard/wrapper that blocks access to feature pages when signed out and renders a sign-in prompt/screen instead. Use authorization component guidance for authenticated gating; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Auth/ProfileSetupDialog.tsx",
+          "operation": "create",
+          "description": "Implement first-login profile setup (ask for name, plus email/phone if desired by backend type) using getCallerUserProfile/saveCallerUserProfile and prevent modal flash using the authorization component guidance. Use shadcn-ui dialog/form components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useCurrentUserProfile.ts",
+          "operation": "create",
+          "description": "Create a React Query hook for getCallerUserProfile with correct enabled/isLoading behavior based on actor availability (per authorization component guidance). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire authentication into the app: show LoginButton in header, wrap protected routes with RequireAuth, and show ProfileSetupDialog after successful login when profile is missing. Use authorization component guidance; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build Money Transfer UI with validated form submission and transfer history display for the signed-in user.",
+      "acceptanceCriteria": [
+        "User can fill a transfer form with required fields and client-side validation blocks invalid amounts/empty required fields.",
+        "Submitting creates a stored transfer record in the backend for that user.",
+        "A transfer history list/table shows previously submitted transfers for the signed-in user."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/transfers/TransferForm.tsx",
+          "operation": "create",
+          "description": "Implement the transfer creation form (from-account label, beneficiary, amount, note, transfer type) with client-side validation and friendly error messages. Use shadcn-ui form inputs/selects/buttons for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/transfers/TransferHistoryTable.tsx",
+          "operation": "create",
+          "description": "Render transfer history (timestamp, beneficiary, amount, type, note, status) with loading/empty/error states provided by React Query hooks. Use shadcn-ui table/card components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/transfers.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for listing transfer history and submitting a transfer using the backend actor from the immutable useActor hook. Include cache invalidation after create. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/MoneyTransferPage.tsx",
+          "operation": "modify",
+          "description": "Wire TransferForm + TransferHistoryTable into the Money Transfer page and ensure the page is protected by RequireAuth via the App router. Use shadcn-ui layout components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build Card Management UI to add/list/remove debit and credit cards using only safe display fields.",
+      "acceptanceCriteria": [
+        "User can add a card with type (Debit/Credit), nickname, last-4, and expiry; invalid last-4/expiry inputs are rejected.",
+        "Saved cards are listed and show only safe fields (nickname/type/last-4/expiry).",
+        "User can remove a saved card and it no longer appears after refresh."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/cards/AddCardForm.tsx",
+          "operation": "create",
+          "description": "Implement add-card form (nickname, type, issuer, last-4, expiry) with validation that blocks unsafe/sensitive inputs (no full PAN/CVV) and rejects invalid last-4/expiry formats. Use shadcn-ui form components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/cards/CardsList.tsx",
+          "operation": "create",
+          "description": "Render saved cards list showing only safe fields (nickname, type, issuer, last-4, expiry) and provide remove action with confirmation and proper loading/error states. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/cards.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for getAllCards/addCard/removeCard using the backend actor, with invalidation on mutations and user-friendly error surfacing. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CardsPage.tsx",
+          "operation": "modify",
+          "description": "Wire AddCardForm + CardsList into the Cards page and ensure the route remains protected by RequireAuth. Use shadcn-ui layout components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create a compound interest calculator UI with validation and accurate results.",
+      "acceptanceCriteria": [
+        "Inputs are validated (non-negative values, sensible ranges).",
+        "Results update on calculate action (or live) and show future value and interest earned.",
+        "Calculation is accurate for typical compound interest formulas given the selected frequency."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/calculators/CompoundInterestCalculator.tsx",
+          "operation": "create",
+          "description": "Implement compound interest calculator (principal, rate %, compounding frequency, time period, optional monthly contribution) with validation and computed outputs (future value, total interest). Use shadcn-ui inputs/selects/cards; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/finance.ts",
+          "operation": "create",
+          "description": "Add pure utility functions for compound interest calculations (including optional monthly contribution) and shared numeric formatting helpers used across calculators."
+        },
+        {
+          "path": "frontend/src/pages/CompoundInterestPage.tsx",
+          "operation": "modify",
+          "description": "Wire CompoundInterestCalculator into the Compound Interest page with consistent layout and explanatory text in English. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement three loan application flows (Vehicle/Business/Home) with validation, backend submission, and a “My Applications” list with statuses.",
+      "acceptanceCriteria": [
+        "Each loan type has its own application form with required field validation.",
+        "Submitting creates a stored application record tied to the signed-in user.",
+        "A list view shows submitted applications with type, amount, tenure, submission date, and status."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/loans/LoanApplicationForm.tsx",
+          "operation": "create",
+          "description": "Create a reusable loan application form component parameterized by loan type (Vehicle/Business/Home) including applicant details, requested amount, tenure, income, purpose, and documents metadata fields, with required-field validation. Use shadcn-ui form components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/loans/MyLoanApplicationsList.tsx",
+          "operation": "create",
+          "description": "Render a list/table of submitted loan applications showing type, amount, tenure, submission date, and status with loading/empty/error states. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/loans.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for applyLoan and getLoanApplications with cache invalidation and user-friendly error handling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/LoansPage.tsx",
+          "operation": "modify",
+          "description": "Wire three loan forms (Vehicle/Business/Home) and MyLoanApplicationsList into the Loans page using tabs/sections and keep it protected by RequireAuth. Use shadcn-ui Tabs/Card components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create Insurance category browsing plus an Insurance Inquiry form persisted via backend and a submitted inquiries list.",
+      "acceptanceCriteria": [
+        "Insurance page shows at least 3–4 categories as selectable cards/items.",
+        "User can submit an insurance inquiry form and it is persisted per user in the backend.",
+        "A list shows previously submitted insurance inquiries and their status (e.g., Submitted)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/insurance/InsuranceCategoryPicker.tsx",
+          "operation": "create",
+          "description": "Render selectable insurance category cards/items for at least Health, Life, Vehicle, Home. Use shadcn-ui cards/buttons; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/insurance/InsuranceInquiryForm.tsx",
+          "operation": "create",
+          "description": "Implement insurance inquiry form (category, coverage amount, notes, contact preference) with validation and submission via React Query mutation. Use shadcn-ui form components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/insurance/InsuranceInquiriesList.tsx",
+          "operation": "create",
+          "description": "Render submitted inquiries list with status and timestamps, including loading/empty/error states. Use shadcn-ui list/table components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/insurance.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for getInsuranceInquiries and submitInsuranceInquiry with proper invalidation and error handling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/InsurancePage.tsx",
+          "operation": "modify",
+          "description": "Wire InsuranceCategoryPicker + InsuranceInquiryForm + InsuranceInquiriesList into the Insurance page and keep it protected by RequireAuth. Use shadcn-ui layout components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create an EMI calculator with validation and outputs; optionally allow saving EMI plans and listing saved plans for the signed-in user.",
+      "acceptanceCriteria": [
+        "EMI calculator validates inputs and produces EMI, total payment, and total interest outputs.",
+        "If “save” is provided, saved EMI plans persist to backend and can be listed for the signed-in user."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/calculators/EmiCalculator.tsx",
+          "operation": "create",
+          "description": "Implement EMI calculator UI (loan amount, interest rate, tenure; monthly/annual toggle) with validation and computed outputs (EMI, total payment, total interest). Provide an optional 'Save plan' action when authenticated. Use shadcn-ui inputs/toggles/buttons; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/emi/SavedEmiPlansList.tsx",
+          "operation": "create",
+          "description": "Render saved EMI plans list with key fields (principal, rate, tenure, emi, totals) and loading/empty/error states. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/emi.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for getEmiPlans and saveEmiPlan with invalidation and user-friendly error handling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/EmiPage.tsx",
+          "operation": "modify",
+          "description": "Wire EmiCalculator + SavedEmiPlansList into the EMI page and keep it protected by RequireAuth. Use shadcn-ui layout components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/finance.ts",
+          "operation": "modify",
+          "description": "Add/extend utility functions to compute EMI values accurately and share formatting logic with other calculators."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add a Dashboard overview that summarizes key user data with quick links to relevant actions.",
+      "acceptanceCriteria": [
+        "Dashboard renders summary widgets/cards for at least transfers, cards, loans, and EMI.",
+        "Widgets reflect the signed-in user’s persisted backend data.",
+        "Quick links navigate to the corresponding feature pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/dashboard.ts",
+          "operation": "create",
+          "description": "Create a React Query hook for fetching the dashboard summary from the backend actor with proper enabled/loading/error behavior. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/dashboard/SummaryCards.tsx",
+          "operation": "create",
+          "description": "Implement summary widgets/cards for recent transfers, saved cards count, loan applications count, and saved EMI plans count, including quick links to the relevant pages. Use shadcn-ui Card/Button components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/dashboard/RecentTransfersPreview.tsx",
+          "operation": "create",
+          "description": "Render a compact preview list of recent transfers for the dashboard with graceful empty/loading/error states. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/DashboardPage.tsx",
+          "operation": "modify",
+          "description": "Wire dashboard summary data + widgets into the Dashboard page, using the hero/banner and icons styling consistently, and ensure it is protected by RequireAuth. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Use React Query for all backend interactions (list/create/delete) and ensure loading, empty, and error states on each data-driven page.",
+      "acceptanceCriteria": [
+        "Each data-driven page shows a loading state while fetching.",
+        "Empty states are shown when there is no data (e.g., no transfers yet).",
+        "Errors from backend are surfaced in a user-friendly way and do not crash the page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/common/QueryState.tsx",
+          "operation": "create",
+          "description": "Create reusable UI components for loading/empty/error states to standardize React Query state rendering across pages. Use shadcn-ui components for alerts/spinners/buttons; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/transfers.ts",
+          "operation": "modify",
+          "description": "Ensure transfer queries/mutations use React Query correctly (enabled conditions, retries where appropriate, invalidation) and surface errors in a user-friendly way."
+        },
+        {
+          "path": "frontend/src/hooks/cards.ts",
+          "operation": "modify",
+          "description": "Ensure card queries/mutations use React Query correctly and provide consistent loading/empty/error states for the Cards page."
+        },
+        {
+          "path": "frontend/src/hooks/loans.ts",
+          "operation": "modify",
+          "description": "Ensure loan queries/mutations use React Query correctly and provide consistent loading/empty/error states for the Loans page."
+        },
+        {
+          "path": "frontend/src/hooks/insurance.ts",
+          "operation": "modify",
+          "description": "Ensure insurance queries/mutations use React Query correctly and provide consistent loading/empty/error states for the Insurance page."
+        },
+        {
+          "path": "frontend/src/hooks/emi.ts",
+          "operation": "modify",
+          "description": "Ensure EMI queries/mutations use React Query correctly and provide consistent loading/empty/error states for the EMI page."
+        },
+        {
+          "path": "frontend/src/components/transfers/TransferHistoryTable.tsx",
+          "operation": "modify",
+          "description": "Standardize loading/empty/error rendering using the shared QueryState components. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/cards/CardsList.tsx",
+          "operation": "modify",
+          "description": "Standardize loading/empty/error rendering using the shared QueryState components. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/loans/MyLoanApplicationsList.tsx",
+          "operation": "modify",
+          "description": "Standardize loading/empty/error rendering using the shared QueryState components. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/insurance/InsuranceInquiriesList.tsx",
+          "operation": "modify",
+          "description": "Standardize loading/empty/error rendering using the shared QueryState components. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/emi/SavedEmiPlansList.tsx",
+          "operation": "modify",
+          "description": "Standardize loading/empty/error rendering using the shared QueryState components. Use shadcn-ui components; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

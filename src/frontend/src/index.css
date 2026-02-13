@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        
+        /* Banking theme - Professional blues and teals */
+        --background: 0.98 0 0;
+        --foreground: 0.15 0 0;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.15 0 0;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0 0;
+        
+        /* Primary: Deep ocean blue */
+        --primary: 0.45 0.15 240;
+        --primary-foreground: 0.98 0 0;
+        
+        /* Secondary: Soft teal */
+        --secondary: 0.92 0.02 200;
+        --secondary-foreground: 0.25 0 0;
+        
+        --muted: 0.95 0.01 220;
+        --muted-foreground: 0.50 0.02 220;
+        
+        /* Accent: Vibrant teal */
+        --accent: 0.88 0.08 200;
+        --accent-foreground: 0.25 0 0;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        
+        --border: 0.90 0.01 220;
+        --input: 0.90 0.01 220;
+        --ring: 0.45 0.15 240;
+        
+        --chart-1: 0.60 0.18 240;
+        --chart-2: 0.55 0.20 200;
+        --chart-3: 0.65 0.15 180;
+        --chart-4: 0.70 0.18 160;
+        --chart-5: 0.58 0.16 220;
+    }
+
+    .dark {
+        --background: 0.12 0.02 240;
+        --foreground: 0.95 0.01 220;
+        
+        --card: 0.18 0.03 240;
+        --card-foreground: 0.95 0.01 220;
+        
+        --popover: 0.15 0.03 240;
+        --popover-foreground: 0.95 0.01 220;
+        
+        /* Primary: Bright cyan for dark mode */
+        --primary: 0.75 0.18 200;
+        --primary-foreground: 0.12 0.02 240;
+        
+        --secondary: 0.25 0.04 220;
+        --secondary-foreground: 0.95 0.01 220;
+        
+        --muted: 0.22 0.03 230;
+        --muted-foreground: 0.65 0.03 220;
+        
+        --accent: 0.30 0.06 210;
+        --accent-foreground: 0.95 0.01 220;
+        
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.12 0.02 240;
+        
+        --border: 0.25 0.03 230;
+        --input: 0.25 0.03 230;
+        --ring: 0.75 0.18 200;
+        
+        --chart-1: 0.65 0.20 220;
+        --chart-2: 0.70 0.18 200;
+        --chart-3: 0.60 0.22 180;
+        --chart-4: 0.75 0.16 240;
+        --chart-5: 0.68 0.19 210;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}

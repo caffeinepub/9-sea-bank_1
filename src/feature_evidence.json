@@ -1,0 +1,229 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-core-frontend-app-shell-and-navigation-for-a-net-banking-website-named-9-sea-bank-with-clear-sections-for-dashboard-money-transfer-cards-compound-interest-loans-vehicle-business-home-insurance-and-emi",
+      "featureTitle": "Create the core frontend app shell and navigation for a net banking website named “9 Sea Bank”, with clear sections for Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle/Business/Home), Insurance, and EMI.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/pages/CardsPage.tsx",
+        "frontend/src/pages/CompoundInterestPage.tsx",
+        "frontend/src/pages/DashboardPage.tsx",
+        "frontend/src/pages/EmiPage.tsx",
+        "frontend/src/pages/InsurancePage.tsx",
+        "frontend/src/pages/LoansPage.tsx",
+        "frontend/src/pages/MoneyTransferPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-define-and-apply-a-coherent-visual-theme-for-9-sea-bank-colors-typography-spacing-and-component-styling-and-use-it-consistently-across-all-pages",
+      "featureTitle": "Define and apply a coherent visual theme for “9 Sea Bank” (colors, typography, spacing, and component styling) and use it consistently across all pages.",
+      "files": [
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/DashboardPage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-internet-identity-sign-in-out-and-a-basic-authenticated-layout-so-that-banking-features-transfers-cards-applications-are-only-accessible-to-signed-in-users",
+      "featureTitle": "Implement Internet Identity sign-in/out and a basic authenticated layout so that banking features (transfers, cards, applications) are only accessible to signed-in users.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Auth/LoginButton.tsx",
+        "frontend/src/components/Auth/ProfileSetupDialog.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-money-transfer-feature-build-a-ui-to-create-a-transfer-from-account-label-beneficiary-details-amount-note-transfer-type-validate-inputs-submit-to-backend-and-show-transfer-history-with-status-e-g-submitted",
+      "featureTitle": "Money Transfer feature: build a UI to create a transfer (from-account label, beneficiary details, amount, note, transfer type), validate inputs, submit to backend, and show transfer history with status (e.g., Submitted).",
+      "files": [
+        "frontend/src/pages/MoneyTransferPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-card-management-feature-build-a-ui-to-add-and-manage-debit-and-credit-cards-add-card-nickname-card-type-last-4-digits-expiry-list-saved-cards-and-remove-a-card-store-card-records-in-backend-using-safe-display-fields-no-full-pan-storage",
+      "featureTitle": "Card Management feature: build a UI to add and manage debit and credit cards (add card nickname, card type, last-4 digits, expiry), list saved cards, and remove a card; store card records in backend using safe display fields (no full PAN storage).",
+      "files": [
+        "frontend/src/pages/CardsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-compound-interest-tool-create-a-calculator-ui-principal-rate-compounding-frequency-time-period-optional-monthly-contribution-and-display-results-future-value-total-interest",
+      "featureTitle": "Compound Interest tool: create a calculator UI (principal, rate %, compounding frequency, time period, optional monthly contribution) and display results (future value, total interest).",
+      "files": [
+        "frontend/src/pages/CompoundInterestPage.tsx",
+        "frontend/src/utils/finance.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-loan-applications-implement-three-application-flows-vehicle-loan-business-loan-home-loan-with-forms-applicant-details-requested-amount-tenure-income-purpose-basic-documents-metadata-fields-and-submit-them-to-backend-show-a-my-applications-list-with-statuses-submitted-under-review",
+      "featureTitle": "Loan Applications: implement three application flows (Vehicle Loan, Business Loan, Home Loan) with forms (applicant details, requested amount, tenure, income, purpose, basic documents metadata fields) and submit them to backend; show a “My Applications” list with statuses (Submitted/Under Review).",
+      "files": [
+        "frontend/src/pages/LoansPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-insurance-section-create-pages-to-browse-insurance-categories-e-g-health-life-vehicle-home-as-simple-categories-and-allow-users-to-submit-an-insurance-inquiry-category-coverage-amount-notes-contact-preference-stored-in-backend-show-submitted-inquiries-list",
+      "featureTitle": "Insurance section: create pages to browse insurance categories (e.g., Health, Life, Vehicle, Home as simple categories) and allow users to submit an “Insurance Inquiry” (category, coverage amount, notes, contact preference) stored in backend; show submitted inquiries list.",
+      "files": [
+        "frontend/src/pages/InsurancePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-emi-feature-create-an-emi-calculator-loan-amount-interest-rate-tenure-monthly-annual-rate-toggle-and-display-emi-total-payment-and-total-interest-optionally-allow-saving-an-emi-plan-entry-to-backend-for-later-viewing",
+      "featureTitle": "EMI feature: create an EMI calculator (loan amount, interest rate, tenure; monthly/annual rate toggle) and display EMI, total payment, and total interest; optionally allow saving an EMI plan entry to backend for later viewing.",
+      "files": [
+        "frontend/src/pages/EmiPage.tsx",
+        "frontend/src/utils/finance.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-dashboard-overview-page-that-summarizes-key-user-data-recent-transfers-saved-cards-count-active-loan-applications-count-and-saved-emi-plans-if-implemented-with-quick-links-to-relevant-actions",
+      "featureTitle": "Add a Dashboard overview page that summarizes key user data: recent transfers, saved cards count, active loan applications count, and saved EMI plans (if implemented), with quick links to relevant actions.",
+      "files": [
+        "frontend/src/pages/DashboardPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-frontend-data-fetching-mutations-using-react-query-for-all-backend-interactions-list-create-delete-with-loading-empty-and-error-states-on-each-page",
+      "featureTitle": "Implement frontend data fetching/mutations using React Query for all backend interactions (list/create/delete), with loading, empty, and error states on each page.",
+      "files": [
+        "frontend/src/components/common/QueryState.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

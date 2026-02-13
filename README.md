@@ -1,2 +1,3 @@
-# 9-sea-bank_1
-Exported from Caffeine project: 9 Sea Bank
+## 9 Sea Bank
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

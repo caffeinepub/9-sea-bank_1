@@ -1,0 +1,236 @@
+{
+  "kind": "build_request",
+  "title": "Build “9 Sea Bank” net banking web app (transfers, cards, interest, loans, insurance, EMI)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the core frontend app shell and navigation for a net banking website named “9 Sea Bank”, with clear sections for Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle/Business/Home), Insurance, and EMI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "ok design a net banking webite ... name of website is 9 sea bank and emi"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header or top-level branding displays the name “9 Sea Bank”.",
+        "Users can navigate to pages: Dashboard, Money Transfer, Cards, Compound Interest, Loans (Vehicle, Business, Home), Insurance, EMI.",
+        "All pages render without runtime errors and have consistent layout spacing and typography."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Define and apply a coherent visual theme for “9 Sea Bank” (colors, typography, spacing, and component styling) and use it consistently across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "ok design a net banking webite..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent color palette and typography scale is applied across the entire UI (buttons, cards, forms, headings).",
+        "The design avoids default/unstyled look and feels like a single product."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement Internet Identity sign-in/out and a basic authenticated layout so that banking features (transfers, cards, applications) are only accessible to signed-in users.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "design a net banking webite with money transfer and managing debit and credit cards..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a sign-in and sign-out control using Internet Identity.",
+        "When signed out, protected pages prompt the user to sign in (or redirect to a sign-in screen).",
+        "When signed in, the user can access all banking feature pages."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend user-scoped persistence keyed by caller identity (Principal) for all user data used by the app (saved payees/beneficiaries, transfer history, saved cards, loan applications, and insurance items).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "net banking webite with money transfer and managing debit and credit cards ... applications for vehicle loan buisness loan house loan then insurances"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores and retrieves data per-caller (no user can read another user’s data).",
+        "All create/list/delete operations used by the frontend succeed and persist across page reloads."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Money Transfer feature: build a UI to create a transfer (from-account label, beneficiary details, amount, note, transfer type), validate inputs, submit to backend, and show transfer history with status (e.g., Submitted).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "net banking webite with money transfer"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can fill a transfer form with required fields and client-side validation blocks invalid amounts/empty required fields.",
+        "Submitting creates a stored transfer record in the backend for that user.",
+        "A transfer history list/table shows previously submitted transfers for the signed-in user."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Card Management feature: build a UI to add and manage debit and credit cards (add card nickname, card type, last-4 digits, expiry), list saved cards, and remove a card; store card records in backend using safe display fields (no full PAN storage).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "managing debit and credit cards by adding them"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can add a card with type (Debit/Credit), nickname, last-4, and expiry; invalid last-4/expiry inputs are rejected.",
+        "Saved cards are listed and show only safe fields (nickname/type/last-4/expiry).",
+        "User can remove a saved card and it no longer appears after refresh."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Compound Interest tool: create a calculator UI (principal, rate %, compounding frequency, time period, optional monthly contribution) and display results (future value, total interest).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "compound intrest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Inputs are validated (non-negative values, sensible ranges).",
+        "Results update on calculate action (or live) and show future value and interest earned.",
+        "Calculation is accurate for typical compound interest formulas given the selected frequency."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Loan Applications: implement three application flows (Vehicle Loan, Business Loan, Home Loan) with forms (applicant details, requested amount, tenure, income, purpose, basic documents metadata fields) and submit them to backend; show a “My Applications” list with statuses (Submitted/Under Review).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "applications for vehicle loan buisness loan house loan"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each loan type has its own application form with required field validation.",
+        "Submitting creates a stored application record tied to the signed-in user.",
+        "A list view shows submitted applications with type, amount, tenure, submission date, and status."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Insurance section: create pages to browse insurance categories (e.g., Health, Life, Vehicle, Home as simple categories) and allow users to submit an “Insurance Inquiry” (category, coverage amount, notes, contact preference) stored in backend; show submitted inquiries list.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "then insurances"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Insurance page shows at least 3–4 categories as selectable cards/items.",
+        "User can submit an insurance inquiry form and it is persisted per user in the backend.",
+        "A list shows previously submitted insurance inquiries and their status (e.g., Submitted)."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "EMI feature: create an EMI calculator (loan amount, interest rate, tenure; monthly/annual rate toggle) and display EMI, total payment, and total interest; optionally allow saving an EMI plan entry to backend for later viewing.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "... 9 sea bank and emi"
+        ]
+      },
+      "acceptanceCriteria": [
+        "EMI calculator validates inputs and produces EMI, total payment, and total interest outputs.",
+        "If “save” is provided, saved EMI plans persist to backend and can be listed for the signed-in user."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add a Dashboard overview page that summarizes key user data: recent transfers, saved cards count, active loan applications count, and saved EMI plans (if implemented), with quick links to relevant actions.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "design a net banking webite ..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard renders summary widgets/cards for at least transfers, cards, loans, and EMI.",
+        "Widgets reflect the signed-in user’s persisted backend data.",
+        "Quick links navigate to the corresponding feature pages."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement frontend data fetching/mutations using React Query for all backend interactions (list/create/delete), with loading, empty, and error states on each page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each data-driven page shows a loading state while fetching.",
+        "Empty states are shown when there is no data (e.g., no transfers yet).",
+        "Errors from backend are surfaced in a user-friendly way and do not crash the page."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor (all logic in one main actor file).",
+    "Do not edit any frontend files under immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui; only compose/use them.",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "No integration with real banking networks, payment rails, or external bank APIs (all transfers are simulated records).",
+    "No storage or handling of full card numbers (PAN), CVV, or sensitive card data beyond safe display fields.",
+    "No KYC/AML, credit checks, underwriting, or document upload processing beyond simple metadata fields.",
+    "No third-party authentication providers beyond Internet Identity."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimalist nautical bank logo mark (9-sea-bank-logo.dim_512x512.png)",
+      "Wide hero/banner illustration with abstract waves and finance motifs (9-sea-bank-hero.dim_1600x600.png)",
+      "Set of 6 simple outline icons (transfer, card, calculator, loan, insurance, dashboard) in a consistent style (9-sea-bank-icons.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

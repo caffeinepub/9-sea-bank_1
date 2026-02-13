@@ -1,0 +1,64 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T06:09:21.551Z",
+  "summary": "Most requested frontend pages and React Query hooks appear to be implemented, along with a single-actor Motoko backend containing per-user (Principal-keyed) storage types for transfers, cards, loans, insurance, and EMI plans. The diff also introduces additional, non-requested authorization/admin-token initialization and a user profile setup flow.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Custom access-control/authorization layer with admin secret token initialization (beyond Internet Identity-only auth requirement).",
+      "reason": "BuildRequest only asks for Internet Identity sign-in/out and user-scoped persistence; it explicitly lists no third-party auth providers. Adding an admin-token based access-control initialization is extra and not requested.",
+      "evidence": [
+        "backend/main.mo (imports authorization/MixinAuthorization and authorization/access-control; permission checks with Runtime.trap(\"Unauthorized...\") )",
+        "frontend/src/hooks/useActor.ts (reads `caffeineAdminToken` from URL and calls `actor._initializeAccessControlWithSecret(adminToken)`)"
+      ]
+    },
+    {
+      "description": "User profile collection and mandatory profile setup dialog (name/email/phone) gated on authentication.",
+      "reason": "The BuildRequest requirements do not include any user profile feature or requirement to collect personal details; adding a profile setup dialog and backend profile storage is extra scope.",
+      "evidence": [
+        "backend/main.mo (defines UserProfile; getCallerUserProfile/getUserProfile/saveCallerUserProfile)",
+        "frontend/src/components/Auth/ProfileSetupDialog.tsx",
+        "frontend/src/App.tsx (renders <ProfileSetupDialog /> in authenticated layout)",
+        "frontend/src/components/AppLayout.tsx (uses useGetCallerUserProfile and displays user initial/profile)"
+      ]
+    },
+    {
+      "description": "Claim that user data is 'encrypted and stored securely on the blockchain' in user-facing login marketing copy.",
+      "reason": "Not requested by the BuildRequest and could be misleading; the diff does not provide evidence of encryption being implemented.",
+      "evidence": [
+        "frontend/src/pages/LoginPage.tsx (feature description: 'Your data is encrypted and stored securely on the blockchain')"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/Auth/LoginButton.tsx",
+    "frontend/src/components/Auth/ProfileSetupDialog.tsx",
+    "frontend/src/components/common/QueryState.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CardsPage.tsx",
+    "frontend/src/pages/CompoundInterestPage.tsx",
+    "frontend/src/pages/DashboardPage.tsx",
+    "frontend/src/pages/EmiPage.tsx",
+    "frontend/src/pages/InsurancePage.tsx",
+    "frontend/src/pages/LoansPage.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "frontend/src/pages/MoneyTransferPage.tsx",
+    "frontend/src/utils/finance.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

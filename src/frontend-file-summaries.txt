@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (Dashboard, Transfer, Cards, Compound Interest, Loans, Insurance, EMI) and wrapping authenticated routes with AppLayout and ProfileSetupDialog.",
+  "frontend/src/components/AppLayout.tsx": "Reusable authenticated layout component with sticky header featuring 9 Sea Bank branding, responsive navigation menu, user profile display, login button, and footer with attribution.",
+  "frontend/src/components/Auth/LoginButton.tsx": "Login/logout button component using Internet Identity with loading states and query cache clearing on logout.",
+  "frontend/src/components/Auth/ProfileSetupDialog.tsx": "Modal dialog for first-time user profile setup (name, email, phone) that appears after successful login when no profile exists, with proper loading state handling to prevent flash.",
+  "frontend/src/components/common/QueryState.tsx": "Reusable UI components for displaying loading, empty, and error states consistently across all data-driven pages.",
+  "frontend/src/hooks/useQueries.ts": "Centralized React Query hooks for all backend operations including user profiles, transfers, cards, loans, insurance inquiries, EMI plans, and dashboard summary with proper cache invalidation.",
+  "frontend/src/utils/finance.ts": "Pure utility functions for compound interest calculation, EMI calculation, and formatting helpers (currency, numbers, dates).",
+  "frontend/src/pages/LoginPage.tsx": "Landing page for unauthenticated users featuring hero section with 9 Sea Bank branding, feature highlights, and Internet Identity login.",
+  "frontend/src/pages/DashboardPage.tsx": "Dashboard overview page displaying summary statistics, recent transfers using enum types correctly, and quick action links to all major features.",
+  "frontend/src/pages/MoneyTransferPage.tsx": "Money transfer page with form for creating new transfers using enum types correctly (TransferType, TransferStatus) and history table showing past transfers with status badges.",
+  "frontend/src/pages/CardsPage.tsx": "Card management page with form to add debit/credit cards (nickname, type, issuer, last-4, expiry) and list of saved cards with remove functionality and confirmation dialog.",
+  "frontend/src/pages/CompoundInterestPage.tsx": "Compound interest calculator with inputs for principal, rate, years, compounding frequency, and monthly contributions, displaying future value and interest breakdown.",
+  "frontend/src/pages/LoansPage.tsx": "Loan applications page with tabbed interface for Vehicle/Business/Home loans, application forms with validation, and list of submitted applications using Variant_submitted_underReview enum correctly for status tracking.",
+  "frontend/src/pages/InsurancePage.tsx": "Insurance page with selectable category cards (Health, Life, Vehicle, Home), inquiry submission form, and list of submitted inquiries using Variant_submitted_reviewed enum correctly for status badges.",
+  "frontend/src/pages/EmiPage.tsx": "EMI calculator page with loan amount, interest rate, and tenure inputs, displaying monthly EMI breakdown with save functionality and list of saved EMI plans.",
+  "frontend/src/index.css": "Global styles with OKLCH-based banking theme featuring professional ocean blues and teals for light mode, bright cyan accents for dark mode, and consistent design tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with banking color palette, custom font families (Inter, Lexend), enhanced shadows, and design system tokens."
+}
